@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mirna Graphic | Premium Corrugated Packaging Manufacturer</title>
+  <meta name="description" content="Mirna Graphic — India's leading corrugated cardboard packaging manufacturer. ISO-certified, custom box solutions for e-commerce, pharma, food & industrial sectors. Request a quote today." />
+  <meta name="keywords" content="corrugated boxes, cardboard packaging, custom packaging, corrugated manufacturer, shipping boxes, printed packaging, e-commerce packaging, industrial packaging, food packaging" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Mirna Graphic — Premium Corrugated Packaging Manufacturer" />
+  <meta property="og:description" content="Custom corrugated packaging solutions for e-commerce, pharma, food & industrial sectors. ISO-certified, bulk supply, pan-India delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://corrflex.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://corrflex.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Manrope:wght@400..800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    :root {
+      --orange: #F97316;
+      --orange-light: #FDBA74;
+      --dark: #0F172A;
+      --light: #F8FAFC;
+      --glass-bg: rgba(15, 23, 42, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: var(--light);
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Manrope', sans-serif; }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 8px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
+    /* Glassmorphism */
+    .glass {
+      background: var(--glass-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--glass-border);
+    }
+    .glass-card {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+    .glass-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(249,115,22,0.2);
+    }
+
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(135deg, var(--light) 0%, var(--orange-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gradient-text-orange {
+      background: linear-gradient(135deg, var(--orange) 0%, #fb923c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Button styles */
+    .btn-primary {
+      background: linear-gradient(135deg, #F97316, #fb923c);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(249,115,22,0.35);
+    }
+    .btn-primary:active { transform: translateY(0); }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 0; height: 0;
+      background: rgba(255,255,255,0.15);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    .btn-primary:hover::after { width: 300px; height: 300px; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--light);
+      border: 1.5px solid rgba(255,255,255,0.2);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn-outline:hover {
+      border-color: var(--orange);
+      background: rgba(249,115,22,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(48px);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Hero */
+    .hero-gradient {
+      background: linear-gradient(135deg, #0F172A 0%, #1e293b 50%, #0F172A 100%);
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% -20%, rgba(249,115,22,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 80% 80%, rgba(249,115,22,0.06) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(15,23,42,0.3) 0%, var(--dark) 100%);
+    }
+
+    /* Parallax shapes */
+    .parallax-shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    /* Product card */
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(249,115,22,0.3);
+      box-shadow: 0 24px 64px rgba(249,115,22,0.1);
+    }
+    .product-card .product-img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+    .product-card .product-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(15,23,42,0.9) 100%);
+    }
+
+    /* Timeline */
+    .timeline-line {
+      position: absolute;
+      left: 23px;
+      top: 48px;
+      bottom: 48px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--orange), rgba(249,115,22,0.2));
+    }
+    .timeline-dot {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(249,115,22,0.2), rgba(249,115,22,0.05));
+      border: 1.5px solid rgba(249,115,22,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Stats */
+    .stat-number {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      line-height: 1;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .gallery-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(2) { grid-column: span 2; }
+    .gallery-item:nth-child(3) { grid-column: span 1; }
+    .gallery-item:nth-child(4) { grid-column: span 1; }
+    .gallery-item:nth-child(5) { grid-column: span 2; }
+    .gallery-item:nth-child(6) { grid-column: span 1; }
+    .gallery-item:nth-child(7) { grid-column: span 1; }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.06); }
+    .gallery-item .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(15,23,42,0.85) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
+      .gallery-item:nth-child(2) { grid-column: span 2; }
+    }
+
+    /* Industry card */
+    .industry-card {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .industry-card:hover {
+      border-color: rgba(249,115,22,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 48px rgba(249,115,22,0.08);
+    }
+    .industry-card .industry-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      background: rgba(249,115,22,0.1);
+      color: var(--orange);
+      transition: all 0.4s ease;
+    }
+    .industry-card:hover .industry-icon {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    /* FAQ */
+    .faq-item {
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      background: none;
+      border: none;
+      color: var(--light);
+      font-family: 'Manrope', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.3s ease;
+    }
+    .faq-question:hover { color: var(--orange); }
+    .faq-question .faq-icon {
+      transition: transform 0.4s ease;
+      font-size: 1.2rem;
+      color: var(--orange);
+    }
+    .faq-question.active .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+      opacity: 0;
+    }
+    .faq-answer.open {
+      max-height: 300px;
+      opacity: 1;
+      padding-bottom: 1.5rem;
+    }
+
+    /* Testimonial */
+    .testimonial-card {
+      border-radius: 24px;
+      padding: 2.5rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.5s ease;
+    }
+    .testimonial-card:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(249,115,22,0.2);
+      transform: translateY(-4px);
+    }
+    .testimonial-card .quote-mark {
+      font-size: 4rem;
+      line-height: 0.6;
+      color: var(--orange);
+      opacity: 0.3;
+      font-family: 'Georgia', serif;
+    }
+
+    /* Form */
+    .form-input {
+      width: 100%;
+      padding: 0.875rem 1.25rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: var(--light);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(249,115,22,0.1);
+      background: rgba(255,255,255,0.06);
+    }
+    .form-input::placeholder { color: rgba(255,255,255,0.3); }
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: rgba(255,255,255,0.7);
+    }
+    select.form-input option { background: #1e293b; color: var(--light); }
+
+    /* Navigation */
+    .nav-blur {
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-link {
+      position: relative;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.65);
+      transition: color 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .nav-link:hover { color: var(--light); }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Mobile nav */
+    .mobile-nav-open {
+      transform: translateX(0) !important;
+    }
+
+    /* Counter */
+    .counter-value {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      line-height: 1;
+    }
+
+    /* Section padding 8pt system */
+    .section-padding {
+      padding: clamp(4rem, 10vw, 8rem) 0;
+    }
+
+    /* Smooth section dividers */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(249,115,22,0.15), transparent);
+    }
+
+    /* Price badge pulse */
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(249,115,22,0.2); }
+      50% { box-shadow: 0 0 40px rgba(249,115,22,0.4); }
+    }
+    .pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+
+    /* Loading shimmer */
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
+    /* Smooth image loading */
+    .progressive-img {
+      background: linear-gradient(90deg, rgba(255,255,255,0.02) 25%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* CTA section */
+    .cta-gradient {
+      background: linear-gradient(135deg, #0F172A 0%, #1a1a2e 50%, #0F172A 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-gradient::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 30% 50%, rgba(249,115,22,0.1) 0%, transparent 70%),
+                 radial-gradient(ellipse 40% 40% at 70% 50%, rgba(249,115,22,0.06) 0%, transparent 70%);
+    }
+
+    /* Footer */
+    .footer-link {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.3s ease;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .footer-link:hover { color: var(--orange); }
+
+    /* Focus visible for accessibility */
+    *:focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--orange);
+      color: #fff;
+      border-radius: 8px;
+      z-index: 1000;
+      transition: top 0.3s ease;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* Global map placeholder */
+    .map-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--orange);
+      position: absolute;
+      box-shadow: 0 0 20px rgba(249,115,22,0.4);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* Trusted by marquee */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      animation: marquee 30s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+
+    /* Accessibility: reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right, .reveal-scale {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .marquee-track { animation: none; }
+      .product-card:hover .product-img { transform: none; }
+      .gallery-item:hover img { transform: none; }
+      .btn-primary:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Skip Link -->
+  <a href="#hero" class="skip-link">Skip to main content</a>
+
+  <!-- ===== 1. STICKY NAVIGATION ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition-all duration-500" role="navigation" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 text-decoration-none" aria-label="Mirna Graphic Home">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-400 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-orange-500/20" aria-hidden="true">C</div>
+          <span class="font-bold text-xl tracking-tight" style="font-family:'Manrope',sans-serif">Corr<span class="text-orange-500">Flex</span></span>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-8">
+          <a href="#products" class="nav-link">Products</a>
+          <a href="#industries" class="nav-link">Industries</a>
+          <a href="#process" class="nav-link">Process</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#certifications" class="nav-link">Certifications</a>
+          <a href="#contact" class="nav-link">Contact</a>
+          <a href="#contact" class="btn-primary px-6 py-2.5 rounded-xl text-sm">
+            Request Quote <i class="fa-solid fa-arrow-right ml-2 text-sm" aria-hidden="true"></i>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-toggle" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-xl glass-card text-white" aria-label="Toggle navigation menu" aria-expanded="false">
+          <i id="hamburger-icon" class="fa-solid fa-bars text-xl" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed top-0 right-0 w-72 h-full z-40 glass shadow-2xl transform translate-x-full transition-transform duration-400 lg:hidden" style="background:rgba(15,23,42,0.97); backdrop-filter:blur(32px);" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <div class="flex flex-col pt-24 px-8 gap-2">
+      <a href="#products" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">Products</a>
+      <a href="#industries" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">Industries</a>
+      <a href="#process" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">Process</a>
+      <a href="#about" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">About</a>
+      <a href="#certifications" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">Certifications</a>
+      <a href="#contact" class="py-3 text-lg font-medium text-white/70 hover:text-orange-500 transition-colors" onclick="closeMobileNav()">Contact</a>
+      <div class="mt-6 pt-6 border-t border-white/10">
+        <a href="#contact" class="btn-primary w-full text-center py-3.5 rounded-xl text-base font-semibold inline-block" onclick="closeMobileNav()">
+          Request Quote <i class="fa-solid fa-arrow-right ml-2" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ===== 2. HERO SECTION ===== -->
+    <section id="hero" class="relative min-h-screen flex items-center hero-gradient overflow-hidden">
+      <div class="hero-overlay"></div>
+      <!-- Parallax shapes -->
+      <div class="parallax-shape w-[500px] h-[500px] bg-orange-500 -top-32 -left-32" data-speed="0.15"></div>
+      <div class="parallax-shape w-[400px] h-[400px] bg-orange-400 bottom-0 right-0" data-speed="0.1"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-32 pb-20 w-full">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm text-orange-300 mb-8 reveal">
+              <span class="w-2 h-2 rounded-full bg-orange-500 animate-pulse" aria-hidden="true"></span>
+              ISO 9001:2015 Certified Manufacturer
+            </div>
+
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.08] tracking-tight reveal" style="transition-delay:0.1s">
+              Industrial-Strength<br/>
+              <span class="gradient-text">Corrugated Packaging</span><br/>
+              Built For Your Business
+            </h1>
+
+            <p class="text-lg md:text-xl text-white/50 mt-8 max-w-xl leading-relaxed reveal" style="transition-delay:0.2s">
+              From custom e-commerce boxes to bulk industrial packaging — we engineer premium corrugated solutions that protect your products and elevate your brand.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap gap-4 mt-10 reveal" style="transition-delay:0.3s">
+              <a href="#contact" class="btn-primary px-8 py-4 rounded-2xl text-base inline-flex items-center gap-3">
+                Request a Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+              <a href="#products" class="btn-outline px-8 py-4 rounded-2xl text-base inline-flex items-center gap-3">
+                <i class="fa-regular fa-rectangle-list" aria-hidden="true"></i> Explore Products
+              </a>
+            </div>
+
+            <!-- Trusted strip -->
+            <div class="flex items-center gap-4 mt-12 reveal" style="transition-delay:0.4s">
+              <div class="flex -space-x-3" aria-hidden="true">
+                <div class="w-10 h-10 rounded-full border-2 border-dark bg-slate-600 flex items-center justify-center text-xs font-bold text-white">TC</div>
+                <div class="w-10 h-10 rounded-full border-2 border-dark bg-slate-500 flex items-center justify-center text-xs font-bold text-white">HB</div>
+                <div class="w-10 h-10 rounded-full border-2 border-dark bg-slate-400 flex items-center justify-center text-xs font-bold text-white">IT</div>
+                <div class="w-10 h-10 rounded-full border-2 border-dark bg-slate-300 flex items-center justify-center text-xs font-bold text-dark">ST</div>
+              </div>
+              <div>
+                <div class="text-sm font-semibold text-white">250+ Happy Clients</div>
+                <div class="text-xs text-white/40">Across 12 countries</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Stats + Image -->
+          <div class="reveal-right" style="transition-delay:0.3s">
+            <div class="relative">
+              <!-- Main image placeholder -->
+              <div class="rounded-3xl overflow-hidden glass-card">
+                <div class="aspect-[4/3] w-full progressive-img bg-gradient-to-br from-slate-800 to-slate-900 relative flex items-center justify-center">
+                  <div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div>
+                  <i class="fa-solid fa-boxes-stacked text-7xl text-orange-500/30" aria-hidden="true"></i>
+                  <div class="absolute bottom-6 left-6 right-6">
+                    <div class="glass rounded-2xl px-5 py-4">
+                      <div class="flex items-center justify-between">
+                        <span class="text-sm text-white/60">Annual Production</span>
+                        <span class="text-2xl font-bold gradient-text-orange" style="font-family:'Manrope',sans-serif">50K+ Tons</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating stat cards -->
+              <div class="absolute -top-4 -right-4 glass rounded-2xl px-5 py-4 hidden md:block pulse-glow">
+                <div class="text-3xl font-bold gradient-text-orange" style="font-family:'Manrope',sans-serif">15+</div>
+                <div class="text-xs text-white/50 mt-0.5">Years Experience</div>
+              </div>
+              <div class="absolute -bottom-4 -left-4 glass rounded-2xl px-5 py-4 hidden md:block">
+                <div class="flex items-center gap-2">
+                  <i class="fa-solid fa-star text-orange-400 text-sm" aria-hidden="true"></i>
+                  <i class="fa-solid fa-star text-orange-400 text-sm" aria-hidden="true"></i>
+                  <i class="fa-solid fa-star text-orange-400 text-sm" aria-hidden="true"></i>
+                  <i class="fa-solid fa-star text-orange-400 text-sm" aria-hidden="true"></i>
+                  <i class="fa-solid fa-star text-orange-400 text-sm" aria-hidden="true"></i>
+                </div>
+                <div class="text-xs text-white/50 mt-1">4.9/5 Client Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll down indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-bounce">
+        <span class="text-xs tracking-widest uppercase">Scroll</span>
+        <i class="fa-solid fa-chevron-down text-sm" aria-hidden="true"></i>
+      </div>
+    </section>
+
+    <!-- ===== 3. TRUSTED BY ===== -->
+    <section class="py-16 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <p class="text-center text-sm text-white/40 uppercase tracking-[0.2em] mb-10 reveal">Trusted by industry leaders worldwide</p>
+        <div class="overflow-hidden relative">
+          <div class="flex marquee-track gap-16 items-center">
+            <!-- Duplicate for seamless loop -->
+            <div class="flex gap-16 items-center">
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-industry text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">MANUFACTECH</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-truck text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">LOGISTICSPRO</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-capsules text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">PHARMA+</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-cart-shopping text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">ECORETAIL</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-utensils text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">FRESHPACK</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-bolt text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">VOLTAGE</span></div>
+            </div>
+            <div class="flex gap-16 items-center">
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-industry text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">MANUFACTECH</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-truck text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">LOGISTICSPRO</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-capsules text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">PHARMA+</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-cart-shopping text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">ECORETAIL</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-utensils text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">FRESHPACK</span></div>
+              <div class="flex items-center gap-3 text-white/20 hover:text-white/40 transition-colors"><i class="fa-solid fa-bolt text-3xl" aria-hidden="true"></i><span class="text-lg font-semibold tracking-tight">VOLTAGE</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. COMPANY STATISTICS ===== -->
+    <section class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">By the Numbers</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Our Industrial Footprint</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div class="text-center reveal-scale">
+            <div class="counter-value gradient-text-orange" data-target="15">0</div>
+            <div class="text-sm text-white/50 mt-2">Years Experience</div>
+          </div>
+          <div class="text-center reveal-scale" style="transition-delay:0.05s">
+            <div class="counter-value gradient-text-orange" data-target="12500">0</div>
+            <div class="text-sm text-white/50 mt-2">Projects Delivered</div>
+          </div>
+          <div class="text-center reveal-scale" style="transition-delay:0.1s">
+            <div class="counter-value gradient-text-orange" data-target="250">0</div>
+            <div class="text-sm text-white/50 mt-2">Happy Clients</div>
+          </div>
+          <div class="text-center reveal-scale" style="transition-delay:0.15s">
+            <div class="counter-value gradient-text-orange" data-target="12">0</div>
+            <div class="text-sm text-white/50 mt-2">Countries Served</div>
+          </div>
+          <div class="text-center reveal-scale" style="transition-delay:0.2s">
+            <div class="counter-value gradient-text-orange" data-target="50000">0</div>
+            <div class="text-sm text-white/50 mt-2">Tons / Year</div>
+          </div>
+          <div class="text-center reveal-scale" style="transition-delay:0.25s">
+            <div class="counter-value gradient-text-orange" data-target="4">0</div>
+            <div class="text-sm text-white/50 mt-2">Manufacturing Units</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. PRODUCTS GRID ===== -->
+    <section id="products" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Our Product Range</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Packaging Solutions Engineered For Excellence</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">Every box is precision-engineered using high-grade kraft paper, advanced corrugation technology, and rigorous quality checks.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Product Card 1 -->
+          <div class="product-card reveal" style="transition-delay:0.1s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-box text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+              <span class="absolute top-4 left-4 glass text-xs font-semibold px-3 py-1.5 rounded-full">Best Seller</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Corrugated Carton Boxes</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Heavy-duty RSC, half-slotted, and die-cut boxes for shipping, storage, and industrial use.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="product-card reveal" style="transition-delay:0.15s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-print text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Printed Packaging</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Multi-color flexo & digital printed boxes with your branding, logos, and product information.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="product-card reveal" style="transition-delay:0.2s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-truck-fast text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Shipping Boxes</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">High-burst-strength shipping cartons designed for logistics, warehousing, and long-distance freight.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="product-card reveal" style="transition-delay:0.25s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-pen-ruler text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+              <span class="absolute top-4 left-4 glass text-xs font-semibold px-3 py-1.5 rounded-full">Custom</span>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Custom Packaging</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Tailor-made designs, unique dimensions, specialty coatings, and structural innovations for your product.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 5 -->
+          <div class="product-card reveal" style="transition-delay:0.1s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-utensils text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Food Packaging</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Food-grade, grease-resistant, FDA-compliant corrugated packaging for fresh, frozen, and dry food products.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 6 -->
+          <div class="product-card reveal" style="transition-delay:0.15s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-cart-shopping text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">E-Commerce Packaging</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Branded, unboxing-ready mailer boxes, and shipping cartons optimized for D2C and marketplace sellers.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 7 -->
+          <div class="product-card reveal" style="transition-delay:0.2s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-warehouse text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Industrial Packaging</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Extra-heavy-duty corrugated solutions for machinery, auto parts, chemicals, and bulk industrial goods.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Product Card 8 -->
+          <div class="product-card reveal" style="transition-delay:0.25s">
+            <div class="aspect-[4/3] relative overflow-hidden">
+              <div class="product-img w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center">
+                <i class="fa-solid fa-store text-5xl text-orange-500/30" aria-hidden="true"></i>
+              </div>
+              <div class="product-overlay"></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold" style="font-family:'Manrope',sans-serif">Retail Display Boxes</h3>
+              <p class="text-white/50 text-sm mt-2 leading-relaxed">Shelf-ready POP displays and retail-ready packaging that drives impulse purchases and brand visibility.</p>
+              <a href="#contact" class="inline-flex items-center gap-2 text-orange-400 text-sm font-semibold mt-4 hover:gap-3 transition-all">
+                Request Pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 6. INDUSTRIES SERVED ===== -->
+    <section id="industries" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Industries We Serve</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Sector-Specific Packaging Expertise</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">Our packaging is tailored to the unique requirements of each industry — from hygiene-critical pharma to heavy-load industrial logistics.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="industry-card p-8 reveal" style="transition-delay:0.05s">
+            <div class="industry-icon"><i class="fa-solid fa-industry" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Manufacturing</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">Heavy-duty industrial packaging for machinery, equipment, and automotive components.</p>
+          </div>
+          <div class="industry-card p-8 reveal" style="transition-delay:0.1s">
+            <div class="industry-icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Food & Beverage</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">FDA-compliant, moisture-resistant packaging for fresh, frozen, and processed food.</p>
+          </div>
+          <div class="industry-card p-8 reveal" style="transition-delay:0.15s">
+            <div class="industry-icon"><i class="fa-solid fa-capsules" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Pharmaceutical</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">Pharma-grade, contamination-free packaging adhering to WHO-GMP standards.</p>
+          </div>
+          <div class="industry-card p-8 reveal" style="transition-delay:0.2s">
+            <div class="industry-icon"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">E-Commerce</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">Right-sized, branded packaging that reduces dimensional weight and delights customers.</p>
+          </div>
+          <div class="industry-card p-8 reveal" style="transition-delay:0.25s">
+            <div class="industry-icon"><i class="fa-solid fa-truck" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Logistics</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">High-stack-strength shipping containers for safe transit across land, air, and sea.</p>
+          </div>
+          <div class="industry-card p-8 reveal" style="transition-delay:0.3s">
+            <div class="industry-icon"><i class="fa-solid fa-store" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Retail</h3>
+            <p class="text-white/50 text-sm mt-2 leading-relaxed">Shelf-impactful display packaging that maximizes visibility and drives conversions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. MANUFACTURING PROCESS ===== -->
+    <section id="process" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Our Process</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">From Kraft To Customer</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">A streamlined, quality-controlled manufacturing pipeline that ensures every box meets exact specifications.</p>
+        </div>
+        <div class="max-w-3xl mx-auto">
+          <div class="relative pl-14">
+            <div class="timeline-line" aria-hidden="true"></div>
+            <div class="space-y-12">
+              <div class="relative reveal-left">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-pen-ruler text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 01</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Design & Structural Engineering</h3>
+                  <p class="text-white/50 text-sm mt-2">Our in-house design team creates custom box structures using CAD software, optimizing for product protection, material efficiency, and print aesthetics.</p>
+                </div>
+              </div>
+              <div class="relative reveal-left" style="transition-delay:0.1s">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-layer-group text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 02</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Raw Material Selection</h3>
+                  <p class="text-white/50 text-sm mt-2">Premium virgin kraft paper and high-quality recycled content are selected based on the required burst strength, flute type, and surface finish.</p>
+                </div>
+              </div>
+              <div class="relative reveal-left" style="transition-delay:0.2s">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-industry text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 03</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Corrugation & Board Manufacturing</h3>
+                  <p class="text-white/50 text-sm mt-2">State-of-the-art corrugators produce single/double/triple-wall boards with precise flute profiles (B, C, E, BC, EB) for optimal strength-to-weight ratio.</p>
+                </div>
+              </div>
+              <div class="relative reveal-left" style="transition-delay:0.3s">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-print text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 04</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Printing & Die-Cutting</h3>
+                  <p class="text-white/50 text-sm mt-2">High-precision flexo and digital printers apply multi-color branding, while automated die-cutters create exact shapes, vents, and handles.</p>
+                </div>
+              </div>
+              <div class="relative reveal-left" style="transition-delay:0.4s">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-box text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 05</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Folding, Gluing & Finishing</h3>
+                  <p class="text-white/50 text-sm mt-2">Automated folder-gluers assemble boxes at high speed. Optional coatings, laminations, and reinforcements are applied for enhanced durability.</p>
+                </div>
+              </div>
+              <div class="relative reveal-left" style="transition-delay:0.5s">
+                <div class="timeline-dot absolute -left-14"><i class="fa-solid fa-clipboard-check text-orange-400" aria-hidden="true"></i></div>
+                <div class="glass-card rounded-2xl p-6">
+                  <span class="text-orange-400 text-xs font-bold uppercase tracking-wider">Step 06</span>
+                  <h3 class="text-xl font-bold mt-1" style="font-family:'Manrope',sans-serif">Quality Control & Dispatch</h3>
+                  <p class="text-white/50 text-sm mt-2">Every batch undergoes stringent QC — burst strength, dimension accuracy, print fidelity, and moisture content — before dispatch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 8. WHY CHOOSE US ===== -->
+    <section id="about" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Why Mirna Graphic</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Built Different. Built Better.</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">Six pillars that make us the preferred packaging partner for businesses across 12 countries.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.05s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-medal" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">Uncompromising Quality</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">ISO 9001:2015 certified facilities with 7-stage QC. Zero-defect policy on dimensions, strength, and print.</p>
+          </div>
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.1s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">Lightning-Fast Delivery</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">Pan-India delivery within 3-7 days. Express manufacturing turnarounds as quick as 24 hours for urgent orders.</p>
+          </div>
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.15s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-tag" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">Competitive Pricing</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">Direct mill procurement + automated manufacturing = 15-20% cost advantage over market rates without compromising quality.</p>
+          </div>
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.2s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">Custom Design Studio</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">In-house structural designers and graphic artists. Free prototyping, 3D renders, and sampling for all custom orders.</p>
+          </div>
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.25s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">ISO & FSC Certified</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">International quality management and sustainable sourcing certifications. Full compliance with global packaging standards.</p>
+          </div>
+          <div class="glass-card rounded-3xl p-8 reveal" style="transition-delay:0.3s">
+            <div class="w-14 h-14 rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-2xl"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+            <h3 class="text-xl font-bold mt-6" style="font-family:'Manrope',sans-serif">Modern Machinery</h3>
+            <p class="text-white/50 text-sm mt-3 leading-relaxed">₹50Cr+ invested in German and Japanese corrugators, printers, and die-cutters. 50,000 sq.m. of manufacturing space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 9. FACTORY GALLERY ===== -->
+    <section class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Factory Tour</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Our Manufacturing Facility</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">A glimpse into our state-of-the-art production facility powered by German and Japanese engineering.</p>
+        </div>
+        <div class="gallery-grid reveal-scale">
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-industry text-5xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-tl from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-print text-4xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-boxes-stacked text-3xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-truck text-3xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-people-group text-4xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-gear text-3xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+          <div class="gallery-item"><div class="w-full h-full progressive-img bg-gradient-to-br from-slate-700 to-slate-800 flex items-center justify-center"><i class="fa-solid fa-robot text-3xl text-orange-500/20" aria-hidden="true"></i></div><div class="gallery-overlay"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 10. CERTIFICATIONS ===== -->
+    <section id="certifications" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Certifications</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Industry-Standard Compliance</h2>
+          <p class="text-white/50 mt-4 text-lg reveal" style="transition-delay:0.1s">Our certifications reflect our commitment to quality, sustainability, and regulatory compliance across every production line.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="glass-card rounded-2xl p-8 text-center reveal" style="transition-delay:0.05s">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-3xl"><i class="fa-solid fa-certificate" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">ISO 9001:2015</h3>
+            <p class="text-white/50 text-sm mt-2">Quality Management System certified for consistent product excellence.</p>
+          </div>
+          <div class="glass-card rounded-2xl p-8 text-center reveal" style="transition-delay:0.1s">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-3xl"><i class="fa-solid fa-tree" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">FSC Certified</h3>
+            <p class="text-white/50 text-sm mt-2">Responsible sourcing of forest-based materials via FSC supply chain.</p>
+          </div>
+          <div class="glass-card rounded-2xl p-8 text-center reveal" style="transition-delay:0.15s">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-3xl"><i class="fa-solid fa-shield" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Food Safety</h3>
+            <p class="text-white/50 text-sm mt-2">FDA-compliant, food-grade packaging for direct food contact applications.</p>
+          </div>
+          <div class="glass-card rounded-2xl p-8 text-center reveal" style="transition-delay:0.2s">
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-orange-500/10 flex items-center justify-center text-orange-400 text-3xl"><i class="fa-solid fa-recycle" aria-hidden="true"></i></div>
+            <h3 class="text-lg font-bold mt-5" style="font-family:'Manrope',sans-serif">Environmental Compliance</h3>
+            <p class="text-white/50 text-sm mt-2">Zero-liquid-discharge plant, 100% recyclable products, carbon-neutral operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 11. TESTIMONIALS ===== -->
+    <section class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Testimonials</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Trusted By Industry Leaders</h2>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="testimonial-card reveal" style="transition-delay:0.05s">
+            <div class="quote-mark" aria-hidden="true">"</div>
+            <p class="text-white/80 leading-relaxed mt-2">Mirna Graphic transformed our packaging supply chain. Their custom e-commerce boxes reduced our shipping damage by 40% and our unboxing scores went through the roof.</p>
+            <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/5">
+              <div class="w-12 h-12 rounded-full bg-slate-600 flex items-center justify-center text-sm font-bold">AK</div>
+              <div>
+                <div class="font-semibold">Arjun Khanna</div>
+                <div class="text-xs text-white/40">Supply Chain Head, ECORETAIL</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal" style="transition-delay:0.1s">
+            <div class="quote-mark" aria-hidden="true">"</div>
+            <p class="text-white/80 leading-relaxed mt-2">The pharma-grade packaging from Mirna Graphic complies with all our regulatory requirements. Their attention to cleanliness, batch traceability, and on-time delivery is exceptional.</p>
+            <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/5">
+              <div class="w-12 h-12 rounded-full bg-slate-500 flex items-center justify-center text-sm font-bold">PM</div>
+              <div>
+                <div class="font-semibold">Dr. Priya Menon</div>
+                <div class="text-xs text-white/40">Quality Director, PHARMA+</div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card reveal" style="transition-delay:0.15s">
+            <div class="quote-mark" aria-hidden="true">"</div>
+            <p class="text-white/80 leading-relaxed mt-2">We evaluated 12 packaging vendors before choosing Mirna Graphic. Their pricing is transparent, quality is consistent, and they've never missed a delivery deadline in 3 years.</p>
+            <div class="flex items-center gap-4 mt-8 pt-6 border-t border-white/5">
+              <div class="w-12 h-12 rounded-full bg-slate-400 flex items-center justify-center text-sm font-bold">RS</div>
+              <div>
+                <div class="font-semibold">Rajesh Singh</div>
+                <div class="text-xs text-white/40">Operations Director, LOGISTICSPRO</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 12. GLOBAL PRESENCE ===== -->
+    <section class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Global Reach</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Serving 12 Countries Across 3 Continents</h2>
+        </div>
+        <div class="glass-card rounded-3xl p-8 md:p-12 reveal">
+          <div class="relative w-full aspect-[2/1] rounded-2xl overflow-hidden progressive-img bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 flex items-center justify-center">
+            <!-- Simplified map representation -->
+            <div class="relative w-full h-full flex items-center justify-center">
+              <i class="fa-solid fa-globe text-8xl md:text-9xl text-white/5" aria-hidden="true"></i>
+              <!-- Dots representing locations -->
+              <div class="map-dot" style="top:32%;left:22%"></div>
+              <div class="map-dot" style="top:28%;left:35%"></div>
+              <div class="map-dot" style="top:38%;left:42%"></div>
+              <div class="map-dot" style="top:22%;left:48%"></div>
+              <div class="map-dot" style="top:45%;left:55%"></div>
+              <div class="map-dot" style="top:35%;left:68%"></div>
+              <div class="map-dot" style="top:55%;left:38%"></div>
+              <div class="map-dot" style="top:60%;left:50%"></div>
+            </div>
+            <div class="absolute bottom-6 left-6 glass rounded-2xl px-5 py-4">
+              <div class="text-sm text-white/60">Operational Presence</div>
+              <div class="text-2xl font-bold gradient-text-orange" style="font-family:'Manrope',sans-serif">12 Countries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 13. FAQ ===== -->
+    <section class="section-padding border-t border-white/5">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">FAQ</span>
+          <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Frequently Asked Questions</h2>
+        </div>
+        <div class="reveal">
+          <div class="faq-item">
+            <button class="faq-question active" aria-expanded="true">
+              What is the minimum order quantity (MOQ)?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer open">
+              <p class="text-white/50 leading-relaxed">Our standard MOQ is 500 units for standard boxes and 1,000 units for custom-printed packaging. However, we work with smaller quantities for startups and trial runs — contact us for specific requirements.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is your typical delivery timeline?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p class="text-white/50 leading-relaxed">Standard orders are delivered within 5-7 business days. Custom-designed packaging takes 7-12 business days including design approval, prototyping, and production. Express orders can be fulfilled in 24-48 hours.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you provide free samples?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p class="text-white/50 leading-relaxed">Yes, we provide free mockup samples for custom orders. You pay only the shipping charges. Stock samples are available for pickup at any of our 4 manufacturing locations.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Which industries do you specialize in?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p class="text-white/50 leading-relaxed">We serve 8 major sectors: Manufacturing, Food & Beverage, Pharmaceutical, E-Commerce, Logistics, Retail, Electronics, and Agriculture. Each sector has dedicated production lines and material specifications.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer international shipping?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p class="text-white/50 leading-relaxed">Absolutely. We export to 12 countries across Asia, Africa, and the Middle East. Our logistics team handles all export documentation, container loading, and customs clearance.</p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What printing options are available?
+              <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+            </button>
+            <div class="faq-answer">
+              <p class="text-white/50 leading-relaxed">We offer flexographic printing (1-4 colors) and digital printing (full CMYK + spot colors). Options include matte/glossy lamination, UV coating, aqueous coating, and embossing/debossing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 14. CONTACT FORM ===== -->
+    <section id="contact" class="section-padding border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <span class="text-orange-400 text-sm font-semibold uppercase tracking-[0.15em] reveal">Get In Touch</span>
+            <h2 class="text-3xl md:text-5xl font-bold mt-4 reveal" style="font-family:'Manrope',sans-serif">Let's Engineer Your Perfect Packaging</h2>
+            <p class="text-white/50 mt-6 text-lg leading-relaxed reveal" style="transition-delay:0.1s">
+              Tell us about your requirements and our packaging engineers will get back to you with a detailed quotation within 4 hours during business hours.
+            </p>
+            <div class="space-y-5 mt-10 reveal" style="transition-delay:0.15s">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400"><i class="fa-solid fa-headset" aria-hidden="true"></i></div>
+                <div><div class="font-semibold">Dedicated Account Manager</div><div class="text-sm text-white/50">Personal support from concept to delivery</div></div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i></div>
+                <div><div class="font-semibold">Free Design & Prototyping</div><div class="text-sm text-white/50">CAD designs and physical samples at no cost</div></div>
+              </div>
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
+                <div><div class="font-semibold">Pan-India Express Delivery</div><div class="text-sm text-white/50">Reach 2,000+ pin codes within 72 hours</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="glass-card rounded-3xl p-8 md:p-10 reveal-right" style="transition-delay:0.15s">
+            <form id="quote-form" novalidate>
+              <div class="grid sm:grid-cols-2 gap-5">
+                <div>
+                  <label for="name" class="form-label">Full Name *</label>
+                  <input type="text" id="name" class="form-input" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label for="company" class="form-label">Company Name *</label>
+                  <input type="text" id="company" class="form-input" placeholder="Company name" required />
+                </div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-5 mt-5">
+                <div>
+                  <label for="phone" class="form-label">Phone Number *</label>
+                  <input type="tel" id="phone" class="form-input" placeholder="+91 98765 43210" required />
+                </div>
+                <div>
+                  <label for="email" class="form-label">Email Address *</label>
+                  <input type="email" id="email" class="form-input" placeholder="you@company.com" required />
+                </div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-5 mt-5">
+                <div>
+                  <label for="packaging-type" class="form-label">Packaging Type</label>
+                  <select id="packaging-type" class="form-input">
+                    <option value="">Select type</option>
+                    <option>Corrugated Carton Boxes</option>
+                    <option>Printed Packaging</option>
+                    <option>Shipping Boxes</option>
+                    <option>Custom Packaging</option>
+                    <option>Food Packaging</option>
+                    <option>E-Commerce Packaging</option>
+                    <option>Industrial Packaging</option>
+                    <option>Retail Display Boxes</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="quantity" class="form-label">Estimated Quantity</label>
+                  <select id="quantity" class="form-input">
+                    <option value="">Select range</option>
+                    <option>Less than 500</option>
+                    <option>500 - 1,000</option>
+                    <option>1,000 - 5,000</option>
+                    <option>5,000 - 10,000</option>
+                    <option>10,000 - 50,000</option>
+                    <option>50,000+</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mt-5">
+                <label for="message" class="form-label">Message / Requirements</label>
+                <textarea id="message" class="form-input" rows="4" placeholder="Tell us about your packaging needs — dimensions, volume, printing requirements, delivery timeline..."></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full py-4 rounded-2xl text-base font-semibold mt-6 inline-flex items-center justify-center gap-3">
+                Submit Enquiry <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </button>
+              <p class="text-center text-xs text-white/30 mt-4">We typically respond within 4 hours. Your information is kept confidential.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 15. CTA BANNER ===== -->
+    <section class="cta-gradient section-padding">
+      <div class="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <div class="reveal-scale">
+          <h2 class="text-3xl md:text-6xl font-bold leading-tight" style="font-family:'Manrope',sans-serif">
+            Ready To Elevate Your<br/>
+            <span class="gradient-text">Packaging Standards?</span>
+          </h2>
+          <p class="text-white/50 text-lg mt-6 max-w-2xl mx-auto">
+            Join 250+ businesses that trust Mirna Graphic for premium corrugated packaging. Get your custom quote within 4 hours.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4 mt-10">
+            <a href="#contact" class="btn-primary px-10 py-4 rounded-2xl text-lg inline-flex items-center gap-3">
+              Get Your Quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </a>
+            <a href="tel:+919999999999" class="btn-outline px-10 py-4 rounded-2xl text-lg inline-flex items-center gap-3">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i> +91 99999 99999
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 16. FOOTER ===== -->
+  <footer class="border-t border-white/5" role="contentinfo">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <a href="#" class="flex items-center gap-2.5 text-decoration-none">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-orange-400 flex items-center justify-center text-white font-bold text-lg" aria-hidden="true">C</div>
+            <span class="font-bold text-xl tracking-tight" style="font-family:'Manrope',sans-serif">Corr<span class="text-orange-500">Flex</span></span>
+          </a>
+          <p class="text-white/40 text-sm mt-4 max-w-sm leading-relaxed">
+            India's premier corrugated packaging manufacturer. ISO 9001:2015 certified, 4 manufacturing units, serving 12 countries with premium cardboard packaging solutions.
+          </p>
+          <div class="flex gap-3 mt-6">
+            <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-white/40 hover:text-orange-400 hover:border-orange-500/30 transition-all" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-white/40 hover:text-orange-400 hover:border-orange-500/30 transition-all" aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-white/40 hover:text-orange-400 hover:border-orange-500/30 transition-all" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="w-10 h-10 rounded-xl glass-card flex items-center justify-center text-white/40 hover:text-orange-400 hover:border-orange-500/30 transition-all" aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="font-family:'Manrope',sans-serif">Products</h4>
+          <div class="flex flex-col gap-3">
+            <a href="#products" class="footer-link">Carton Boxes</a>
+            <a href="#products" class="footer-link">Printed Boxes</a>
+            <a href="#products" class="footer-link">Shipping Boxes</a>
+            <a href="#products" class="footer-link">Food Packaging</a>
+            <a href="#products" class="footer-link">E-Commerce Boxes</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="font-family:'Manrope',sans-serif">Company</h4>
+          <div class="flex flex-col gap-3">
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="#certifications" class="footer-link">Certifications</a>
+            <a href="#process" class="footer-link">Our Process</a>
+            <a href="#industries" class="footer-link">Industries</a>
+            <a href="#contact" class="footer-link">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-wider mb-5" style="font-family:'Manrope',sans-serif">Contact</h4>
+          <div class="flex flex-col gap-3 text-sm text-white/50">
+            <div class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-orange-400 mt-1" aria-hidden="true"></i>
+              <span>123 Industrial Area, MIDC,<br/>Mumbai, Maharashtra, India</span>
+            </div>
+            <a href="tel:+919999999999" class="footer-link flex items-center gap-3">
+              <i class="fa-solid fa-phone text-orange-400" aria-hidden="true"></i> +91 99999 99999
+            </a>
+            <a href="mailto:info@corrflex.com" class="footer-link flex items-center gap-3">
+              <i class="fa-solid fa-envelope text-orange-400" aria-hidden="true"></i> info@corrflex.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/30">
+        <p>&copy; 2026 Mirna Graphic Packaging. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="footer-link text-xs">Privacy Policy</a>
+          <a href="#" class="footer-link text-xs">Terms of Service</a>
+          <a href="#" class="footer-link text-xs">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== NAVIGATION =====
+    const navbar = document.getElementById('navbar');
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 80) {
+        navbar.classList.add('nav-blur');
+        navbar.style.transform = currentScroll > lastScroll ? 'translateY(-100%)' : 'translateY(0)';
+      } else {
+        navbar.classList.remove('nav-blur');
+        navbar.style.transform = 'translateY(0)';
+      }
+      lastScroll = currentScroll;
+    });
+
+    function closeMobileNav() {
+      mobileMenu.classList.remove('mobile-nav-open');
+      hamburgerIcon.className = 'fa-solid fa-bars text-xl';
+      document.body.style.overflow = '';
+      mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    mobileToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('mobile-nav-open');
+      hamburgerIcon.className = isOpen ? 'fa-solid fa-xmark text-xl' : 'fa-solid fa-bars text-xl';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+      mobileToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    // ===== SCROLL REVEAL (Intersection Observer) =====
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.08,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== COUNTER ANIMATION =====
+    const counters = document.querySelectorAll('.counter-value');
+    let countersAnimated = false;
+
+    function animateCounters() {
+      if (countersAnimated) return;
+      countersAnimated = true;
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const suffix = counter.textContent.includes('K') ? 'K' : '';
+        let current = 0;
+        const increment = Math.ceil(target / 80);
+        const duration = 2000;
+        const stepTime = Math.floor(duration / 80);
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            current = target;
+            clearInterval(timer);
+          }
+          counter.textContent = current.toLocaleString();
+        }, stepTime);
+      });
+    }
+
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.querySelector('.counter-value')?.closest('section');
+    if (statsSection) statsObserver.observe(statsSection);
+
+    // ===== FAQ ACCORDION =====
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
+      question.addEventListener('click', () => {
+        const isOpen = answer.classList.contains('open');
+
+        // Close all
+        faqItems.forEach(other => {
+          other.querySelector('.faq-answer').classList.remove('open');
+          other.querySelector('.faq-question').classList.remove('active');
+          other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          answer.classList.add('open');
+          question.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ===== PARALLAX ON MOUSE MOVE =====
+    const parallaxShapes = document.querySelectorAll('.parallax-shape');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = e.clientX / window.innerWidth;
+      const y = e.clientY / window.innerHeight;
+
+      parallaxShapes.forEach(shape => {
+        const speed = parseFloat(shape.getAttribute('data-speed')) || 0.1;
+        const moveX = (x - 0.5) * 60 * speed;
+        const moveY = (y - 0.5) * 60 * speed;
+        shape.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+    });
+
+    // ===== FORM HANDLING =====
+    const form = document.getElementById('quote-form');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const btn = form.querySelector('button[type="submit"]');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i> Sending...';
+      btn.disabled = true;
+
+      // Simulate submission
+      setTimeout(() => {
+        btn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Enquiry Sent!';
+        btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+      }, 1500);
+    });
+
+    // ===== SMOOTH SCROLL FOR NAV LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          const offset = 100;
+          const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ===== NAVBAR ACTIVE LINK HIGHLIGHT =====
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const top = section.offsetTop - 200;
+        if (window.pageYOffset >= top) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.style.color = link.getAttribute('href') === '#' + current ? '#F97316' : '';
+      });
+    });
+
+    console.log('%c Mirna Graphic Packaging ', 'background:#F97316;color:#fff;font-size:1.2rem;padding:8px 16px;border-radius:4px;font-weight:bold');
+    console.log('%c Built with precision. Packaged with care. ', 'color:#FDBA74;font-size:0.9rem');
+  </script>
+
+</body>
+</html>
