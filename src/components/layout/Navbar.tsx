@@ -26,6 +26,8 @@ export default function Navbar() {
     { id: 'about', title: t.nav.about, icon: Building2, href: '#about' },
     { id: 'manufacturing', title: t.nav.manufacturing, icon: Factory, href: '#manufacturing' },
     { id: 'portfolio', title: t.nav.products, icon: Package, href: '#portfolio' },
+    { id: 'industries', title: t.nav.industries, icon: BriefcaseBusiness, href: '#industries' },
+    { id: 'showcase', title: t.nav.gallery, icon: Images, href: '#showcase' },
     { id: 'quality', title: t.nav.quality, icon: ShieldCheck, href: '#quality' },
     { id: 'projects', title: t.nav.projects, icon: FolderKanban, href: '#projects' },
     { id: 'contact', title: t.nav.contact, icon: PhoneCall, href: '#contact' },
