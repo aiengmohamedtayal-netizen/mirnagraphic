@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ArrowLeft, ChevronDown } from 'lucide-react';
 import { Link } from 'next-view-transitions';
 import Image from 'next/image';
-import { fadeUp, staggerContainer, viewportOnce, buttonHover, heroReveal } from '@/lib/motion';
+import { fadeUp, staggerContainer, buttonHover, heroReveal } from '@/lib/motion';
 
 export default function Hero() {
   const { t, dir } = useLocale();

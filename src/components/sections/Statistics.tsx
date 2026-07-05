@@ -21,7 +21,7 @@ export default function Statistics() {
 
     useEffect(() => {
       if (isInView) {
-        let start = 0;
+
         const end = value;
         if (end === 0) return;
         

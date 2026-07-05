@@ -52,7 +52,7 @@ export default function Testimonials() {
               <div>
                 <Quote className="w-10 h-10 text-primary/20 mb-6 rotate-180" />
                 <p className="text-lg text-foreground font-medium leading-relaxed mb-8 italic">
-                  "{item.quote}"
+                  &quot;{item.quote}&quot;
                 </p>
               </div>
               <div className="border-t border-border pt-6">

@@ -1,4 +1,3 @@
-import Navbar from '@/components/layout/Navbar';
 import Hero from '@/components/sections/Hero';
 import AboutMirna from '@/components/sections/AboutMirna';
 import WhyChoose from '@/components/sections/WhyChoose';

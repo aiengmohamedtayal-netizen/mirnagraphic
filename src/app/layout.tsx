@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Inter, Lora } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/context/LocaleContext";
 import Navbar from "@/components/layout/Navbar";
@@ -14,9 +14,9 @@ const inter = Inter({
   display: 'swap',
 });
 
-const lora = Lora({
+const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-lora',
+  variable: '--font-manrope',
   display: 'swap',
 });
 
@@ -33,8 +33,37 @@ const thmanyah = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Mirna Graphic | Premium Packaging Manufacturer",
+  metadataBase: new URL('https://mirnagraphic.com'),
+  title: {
+    default: "Mirna Graphic | Premium Packaging Manufacturer",
+    template: "%s | Mirna Graphic",
+  },
   description: "Pioneering Premium Carton Packaging Solutions in El Mahalla El Kubra with Absolute Digital Precision. Official B2B Manufacturer.",
+  openGraph: {
+    title: "Mirna Graphic | Premium Packaging Manufacturer",
+    description: "Pioneering Premium Carton Packaging Solutions with Absolute Digital Precision.",
+    url: "https://mirnagraphic.com",
+    siteName: "Mirna Graphic",
+    locale: "en_US",
+    alternateLocale: "ar_EG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mirna Graphic",
+    description: "Premium Carton Packaging Solutions in Egypt.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -43,18 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={thmanyah.variable}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-        <style>{`
-          :root {
-            --font-inter: 'Inter', sans-serif;
-            --font-manrope: 'Manrope', sans-serif;
-          }
-        `}</style>
-      </head>
+    <html lang="en" suppressHydrationWarning className={`${thmanyah.variable} ${inter.variable} ${manrope.variable}`}>
       <body className="antialiased font-sans bg-background text-foreground min-h-screen flex flex-col selection:bg-primary selection:text-primary-foreground">
         <ViewTransitions>
           <LocaleProvider>

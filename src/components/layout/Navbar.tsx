@@ -19,9 +19,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  const isAr = dir === 'rtl';
-
-  const navLinks = [
+  const navLinks = React.useMemo(() => [
     { id: 'home', title: t.nav.home, icon: House, href: '#home' },
     { id: 'about', title: t.nav.about, icon: Building2, href: '#about' },
     { id: 'manufacturing', title: t.nav.manufacturing, icon: Factory, href: '#manufacturing' },
@@ -31,7 +29,7 @@ export default function Navbar() {
     { id: 'quality', title: t.nav.quality, icon: ShieldCheck, href: '#quality' },
     { id: 'projects', title: t.nav.projects, icon: FolderKanban, href: '#projects' },
     { id: 'contact', title: t.nav.contact, icon: PhoneCall, href: '#contact' },
-  ];
+  ], [t]);
 
   useEffect(() => {
     const handleScroll = () => {
