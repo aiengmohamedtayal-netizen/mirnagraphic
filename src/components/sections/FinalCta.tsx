@@ -39,19 +39,21 @@ export default function FinalCta() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <motion.button 
+            <motion.a 
+              href="#contact"
               {...buttonHover}
               className="group inline-flex items-center justify-center gap-3 px-10 py-5 bg-white text-primary rounded-2xl font-bold text-xl shadow-2xl"
             >
               {t.finalCta.call}
               {isAr ? <ArrowLeft className="w-6 h-6 group-hover:-translate-x-2 transition-transform" /> : <ArrowRight className="w-6 h-6 group-hover:translate-x-2 transition-transform" />}
-            </motion.button>
-            <motion.button 
+            </motion.a>
+            <motion.a 
+              href="#contact"
               {...buttonHover}
               className="inline-flex items-center justify-center px-10 py-5 bg-transparent border-2 border-white/40 text-white rounded-2xl font-bold text-xl hover:bg-white/10 backdrop-blur-sm transition-colors"
             >
               {t.nav?.quote || (isAr ? 'اطلب عرض سعر' : 'Request Quotation')}
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>
