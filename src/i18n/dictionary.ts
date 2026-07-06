@@ -16,10 +16,13 @@ export const dictionary = {
     },
     hero: {
       label: "Pioneering Packaging Excellence",
-      h1: "Premium Carton Packaging Manufactured in Egypt.",
-      subtitle: "Mirna Graphic engineers high-durability, custom offset and digital carton packaging. Built in El Mahalla El Kubra for global and local supply chains.",
+      h1: "Premium Carton Packaging",
+      subtitle: "Manufacturing expertise meets precision design.",
       ctaQuote: "Request a Custom Quote",
       ctaExplore: "Explore Our Factory",
+      ctaPrimary: "View Capabilities",
+      ctaSecondary: "Learn More",
+      loading3d: "Loading 3D Experience",
       trust: {
         iso: "ISO 9001 Certified",
         years: "20+ Years",
@@ -296,10 +299,13 @@ export const dictionary = {
     },
     hero: {
       label: "ريادة في صناعة التغليف",
-      h1: "صناعة التغليف الكرتوني الفاخر في مصر.",
-      subtitle: "ميرنا جرافيك تصمم وتصنع حلول التغليف الكرتوني عالية المتانة والمطبوعة بتقنيات الأوفست والديجيتال. مصنعنا في المحلة الكبرى يخدم سلاسل الإمداد المحلية والعالمية.",
+      h1: "صناعة التغليف الكرتوني الفاخر",
+      subtitle: "خبرات التصنيع تلتقي بدقة التصميم.",
       ctaQuote: "اطلب عرض سعر مخصص",
       ctaExplore: "استكشف مصنعنا",
+      ctaPrimary: "استكشف إمكانياتنا",
+      ctaSecondary: "اعرف المزيد",
+      loading3d: "جاري تحميل تجربة 3D",
       trust: {
         iso: "أيزو 9001 معتمد",
         years: "+20 عاماً خبرة",
