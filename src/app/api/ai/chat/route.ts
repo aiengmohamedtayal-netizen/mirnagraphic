@@ -66,6 +66,49 @@ function parseMessages(value: unknown): ChatMessage[] {
     .slice(-MAX_MESSAGES);
 }
 
+async function readStreamingAnswer(response: Response) {
+  if (!response.body) return { answer: "", reasoningChars: 0 };
+
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  let answer = "";
+  let reasoningChars = 0;
+
+  const consumeLine = (line: string) => {
+    const data = line.trim();
+    if (!data.startsWith("data:")) return;
+    const payload = data.slice(5).trim();
+    if (!payload || payload === "[DONE]") return;
+
+    try {
+      const event = JSON.parse(payload) as {
+        choices?: Array<{
+          delta?: { content?: unknown; reasoning_content?: unknown; reasoning?: unknown };
+        }>;
+      };
+      const delta = event.choices?.[0]?.delta;
+      if (typeof delta?.content === "string") answer += delta.content;
+      if (typeof delta?.reasoning_content === "string") reasoningChars += delta.reasoning_content.length;
+      if (typeof delta?.reasoning === "string") reasoningChars += delta.reasoning.length;
+    } catch {
+      // Ignore keep-alive or provider metadata frames that are not JSON completions.
+    }
+  };
+
+  while (true) {
+    const { value, done } = await reader.read();
+    buffer += decoder.decode(value ?? new Uint8Array(), { stream: !done });
+    const lines = buffer.split(/\\r?\\n/);
+    buffer = lines.pop() ?? "";
+    lines.forEach(consumeLine);
+    if (done) break;
+  }
+  if (buffer) consumeLine(buffer);
+
+  return { answer, reasoningChars };
+}
+
 export async function POST(request: Request) {
   let body: ChatRequest;
   try {
@@ -124,7 +167,8 @@ export async function POST(request: Request) {
         // Keep the reasoning path private while allocating enough room for the user-facing answer.
         ...(isThinking ? { include_reasoning: false } : {}),
         max_tokens: isThinking ? (mode === "admin" ? 1600 : 1400) : (mode === "admin" ? 650 : 500),
-        stream: false,
+        // Thinking models are consumed as SSE internally so slow reasoning can start emitting promptly.
+        stream: isThinking,
       }),
       // Thinking responses can take longer than fast completions, especially on a cold upstream worker.
       signal: AbortSignal.timeout(isThinking ? 50_000 : 25_000),
@@ -136,27 +180,24 @@ export async function POST(request: Request) {
       return jsonResponse({ error: "The AI assistant is temporarily unavailable." }, 502);
     }
 
+    if (isThinking) {
+      const streamed = await readStreamingAnswer(upstream);
+      if (!streamed.answer.trim()) {
+        console.error("SovereignEG returned no final streamed content", {
+          strategy,
+          reasoningChars: streamed.reasoningChars,
+        });
+        return jsonResponse({ error: "The AI assistant is still preparing a final answer. Please try again." }, 502);
+      }
+      return jsonResponse({ answer: streamed.answer.trim().slice(0, 12000) });
+    }
+
     const result = (await upstream.json()) as {
-      choices?: Array<{
-        message?: {
-          content?: unknown;
-          reasoning?: unknown;
-          reasoning_content?: unknown;
-        };
-        finish_reason?: unknown;
-      }>;
+      choices?: Array<{ message?: { content?: unknown } }>;
     };
-    const message = result.choices?.[0]?.message;
-    const answer = message?.content;
+    const answer = result.choices?.[0]?.message?.content;
     if (typeof answer !== "string" || answer.trim().length === 0) {
-      const hasReasoningOnlyResponse = typeof message?.reasoning === "string"
-        || typeof message?.reasoning_content === "string";
-      console.error("SovereignEG returned no final content", {
-        strategy,
-        finishReason: result.choices?.[0]?.finish_reason,
-        reasoningOnly: hasReasoningOnlyResponse,
-      });
-      return jsonResponse({ error: "The AI assistant is still preparing a final answer. Please try again." }, 502);
+      return jsonResponse({ error: "The AI assistant returned an empty response." }, 502);
     }
 
     return jsonResponse({ answer: answer.trim().slice(0, 12000) });
