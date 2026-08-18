@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { ArrowDownRight, ArrowUpRight, CheckCircle2, CircleDashed, Clock3, Info, TriangleAlert } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, CheckCircle2, CircleDashed, Clock3, Info, TriangleAlert, Database } from "lucide-react";
 
 export function PageIntro({ eyebrow, title, description, action }: { eyebrow?: string; title: string; description: string; action?: ReactNode }) {
   return (
@@ -62,4 +62,15 @@ export function Trend({ direction, children }: { direction: "up" | "down" | "fla
 
 export function FilterPill({ active, children }: { active?: boolean; children: ReactNode }) {
   return <button type="button" className={`rounded-lg border px-3 py-2 text-xs font-bold transition ${active ? "border-[#0F4C81] bg-[#0F4C81] text-white" : "border-[#DCE5EC] bg-white text-[#5E7281] hover:border-[#0F4C81] hover:text-[#0F4C81]"}`}>{children}</button>;
+}
+
+export function EmptyState({ title, description, action }: { title: string; description: string; action?: ReactNode }) {
+  return (
+    <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-[#C9D9E3] bg-[#FBFDFE] px-6 py-10 text-center">
+      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#EAF3FA] text-[#0F4C81]"><Database size={19} aria-hidden="true" /></span>
+      <h3 className="mt-4 text-sm font-extrabold text-[#1E3A50]">{title}</h3>
+      <p className="mt-2 max-w-md text-xs leading-5 text-[#748896]">{description}</p>
+      {action && <div className="mt-5">{action}</div>}
+    </div>
+  );
 }

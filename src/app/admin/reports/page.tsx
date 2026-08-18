@@ -1,20 +1,22 @@
 "use client";
 
-import { BarChart3, Download, TrendingUp } from "lucide-react";
+import { BarChart3 } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
-import { reportMetrics } from "@/data/admin/mock-data";
-import { PageIntro, SurfaceHeader, Trend } from "@/components/admin/AdminUi";
-
-const monthlyVolume = [42, 48, 44, 56, 63, 71, 68, 78, 76, 83, 88, 94];
+import { EmptyState, PageIntro } from "@/components/admin/AdminUi";
 
 export default function ReportsPage() {
   const { locale } = useLocale();
   const isArabic = locale === "ar";
   return (
     <div>
-      <PageIntro eyebrow={isArabic ? "قراءة الأداء" : "Performance review"} title={isArabic ? "التقارير" : "Reports"} description={isArabic ? "مؤشرات مختصرة تساعد فريق التشغيل على قراءة الحركة وليس فقط تسجيلها." : "A concise operating picture for reading momentum across quotes, delivery, quality, and materials."} action={<button type="button" className="inline-flex items-center gap-2 rounded-xl border border-[#DCE5EC] bg-white px-4 py-3 text-xs font-black text-[#496476] hover:border-[#0F4C81] hover:text-[#0F4C81]"><Download size={15} aria-hidden="true" /> Export report</button>} />
-      <div className="mb-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">{reportMetrics.map((metric) => <article key={metric.label} className="admin-surface p-5"><p className="text-xs font-bold text-[#738696]">{metric.label}</p><p className="mt-3 text-2xl font-black tracking-[-0.05em] text-[#1E3A50]">{metric.value}</p><div className="mt-2"><Trend direction={metric.direction}>{metric.delta}</Trend></div></article>)}</div>
-      <div className="grid gap-6 xl:grid-cols-[minmax(0,1.4fr)_minmax(320px,0.8fr)]"><section className="admin-surface p-5 sm:p-6"><SurfaceHeader title={isArabic ? "حجم الإنتاج الشهري" : "Monthly production volume"} detail={isArabic ? "مؤشر نسبي تجريبي لآخر 12 شهرًا" : "Relative demo throughput over the last 12 months"} action={<span className="inline-flex items-center gap-1 text-xs font-black text-[#347B58]"><TrendingUp size={14} aria-hidden="true" /> +18.6%</span>} /><div className="flex h-64 items-end gap-2 rounded-2xl bg-[#F7FAFC] px-4 pb-4 pt-8 sm:gap-3 sm:px-7">{monthlyVolume.map((value, index) => <div key={index} className="group flex h-full flex-1 flex-col items-center justify-end gap-2"><div className="relative w-full rounded-t-lg bg-[#0F4C81] opacity-80 transition hover:bg-[#D4AF37]" style={{ height: `${value}%` }}><span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 rounded bg-[#17344B] px-1.5 py-1 text-[9px] font-black text-white opacity-0 transition group-hover:opacity-100">{value}</span></div><span className="text-[9px] font-bold text-[#8A99A5]">{index + 1}</span></div>)}</div><div className="mt-4 flex items-center justify-between text-[10px] font-bold text-[#8A99A5]"><span>Jan</span><span>Dec</span></div></section><section className="admin-surface p-5 sm:p-6"><SurfaceHeader title={isArabic ? "نظرة الجودة" : "Quality snapshot"} detail={isArabic ? "مؤشرات من بيانات العرض التجريبي" : "Indicators from the demo operating set"} /><div className="space-y-5"><div><div className="mb-2 flex items-center justify-between text-xs"><span className="font-bold text-[#6D8090]">Inline inspection</span><strong className="text-[#1E3A50]">99.1%</strong></div><div className="h-2 rounded-full bg-[#ECF4EF]"><div className="h-full w-[99.1%] rounded-full bg-[#4F8A70]" /></div></div><div><div className="mb-2 flex items-center justify-between text-xs"><span className="font-bold text-[#6D8090]">Color calibration</span><strong className="text-[#1E3A50]">97.8%</strong></div><div className="h-2 rounded-full bg-[#EAF3FA]"><div className="h-full w-[97.8%] rounded-full bg-[#0F4C81]" /></div></div><div><div className="mb-2 flex items-center justify-between text-xs"><span className="font-bold text-[#6D8090]">Dispatch readiness</span><strong className="text-[#1E3A50]">94.6%</strong></div><div className="h-2 rounded-full bg-[#FFF8E8]"><div className="h-full w-[94.6%] rounded-full bg-[#D4AF37]" /></div></div></div><div className="mt-7 flex items-center gap-2 border-t border-[#E8EEF2] pt-4 text-[11px] leading-5 text-[#8796A2]"><BarChart3 size={15} className="shrink-0 text-[#0F4C81]" aria-hidden="true" /> Reports are visual summaries only until operational data is connected.</div></section></div>
+      <PageIntro eyebrow={isArabic ? "قراءة الأداء" : "Performance review"} title={isArabic ? "التقارير" : "Reports"} description={isArabic ? "لا تُعرض مؤشرات أو رسوم إلا بعد توفر بيانات تشغيلية حقيقية." : "Charts and operating indicators appear only after verified operational data is available."} />
+      <section className="admin-surface p-5 sm:p-6">
+        <EmptyState
+          title={isArabic ? "لا توجد بيانات لإنشاء التقارير" : "No reportable data yet"}
+          description={isArabic ? "لا توجد حالياً جداول تشغيل أو إنتاج أو مخزون يمكن بناء تقارير موثوقة منها. تم حذف النسب والرسوم التجريبية بالكامل." : "There are currently no connected operational, production, or inventory tables from which reliable reports can be generated. All sample ratios and charts have been removed."}
+          action={<span className="inline-flex items-center gap-2 rounded-xl border border-[#DCE5EC] bg-white px-4 py-3 text-xs font-black text-[#496476]"><BarChart3 size={15} aria-hidden="true" /> {isArabic ? "بانتظار بيانات تشغيلية" : "Awaiting operational data"}</span>}
+        />
+      </section>
     </div>
   );
 }
