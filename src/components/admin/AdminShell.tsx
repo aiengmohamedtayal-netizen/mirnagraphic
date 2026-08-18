@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import {
   BarChart3,
@@ -18,6 +18,7 @@ import {
   Search,
   Settings,
   Users,
+  FilePenLine,
   X,
 } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
@@ -32,6 +33,7 @@ const navigation = [
   { key: "clients", href: "/admin/clients", icon: Users },
   { key: "reports", href: "/admin/reports", icon: BarChart3 },
   { key: "settings", href: "/admin/settings", icon: Settings },
+  { key: "content", href: "/admin/content", icon: FilePenLine },
 ] as const;
 
 type AdminShellProps = {
@@ -42,6 +44,7 @@ type AdminShellProps = {
 
 export default function AdminShell({ children, title, description }: AdminShellProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const { locale, setLocale, dir } = useLocale();
   const copy = adminDictionary[locale];
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -93,8 +96,8 @@ export default function AdminShell({ children, title, description }: AdminShellP
           <div className="flex items-start gap-3">
             <span className="mt-1 h-2.5 w-2.5 rounded-full bg-[#76C69B] shadow-[0_0_0_4px_rgba(118,198,155,0.12)]" aria-hidden="true" />
             <div>
-              <p className="text-xs font-bold text-white">Demo workspace</p>
-              <p className="mt-1 text-[11px] leading-5 text-[#A9C0CF]">Mock data only. No live operations connected.</p>
+              <p className="text-xs font-bold text-white">Authenticated workspace</p>
+              <p className="mt-1 text-[11px] leading-5 text-[#A9C0CF]">Live CMS controls are protected by session.</p>
             </div>
           </div>
         </div>
@@ -102,11 +105,12 @@ export default function AdminShell({ children, title, description }: AdminShellP
           <ExternalLink size={15} aria-hidden="true" />
           {copy.nav.publicSite}
         </Link>
+        <button type="button" className="mt-1 flex w-full items-center justify-center rounded-xl px-3 py-2 text-xs font-bold text-[#BBD0DF] transition-colors hover:bg-white/10 hover:text-white" onClick={async () => { await fetch("/api/auth/logout", { method: "POST" }); router.replace("/admin/login"); router.refresh(); }}>Sign out</button>
       </aside>
 
       {sidebarOpen && <button type="button" aria-label={copy.common.close} className="fixed inset-0 z-40 bg-[#061724]/60 lg:hidden" onClick={() => setSidebarOpen(false)} />}
 
-      <div className="min-h-screen lg:pl-[286px] lg:pr-0" dir="ltr">
+      <div className={`min-h-screen min-w-0 overflow-x-hidden ${isRtl ? "lg:pr-[286px]" : "lg:pl-[286px]"}`} dir={dir}>
         <header className="sticky top-0 z-30 border-b border-[#DCE5EC]/90 bg-[#F3F6F9]/90 px-4 py-3 backdrop-blur-xl sm:px-6 lg:px-10" dir={dir}>
           <div className="mx-auto flex max-w-[1540px] items-center gap-3">
             <button type="button" className="admin-icon-button border border-[#DCE5EC] bg-white text-[#0F4C81] lg:hidden" onClick={() => setSidebarOpen(true)} aria-label={copy.common.menu} aria-expanded={sidebarOpen}>
@@ -127,8 +131,8 @@ export default function AdminShell({ children, title, description }: AdminShellP
               <div className="flex items-center gap-2">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#DCEAF4] text-xs font-black text-[#0F4C81]" aria-hidden="true">OP</span>
                 <div className="hidden leading-tight sm:block">
-                  <p className="text-xs font-bold text-[#1E293B]">Operations</p>
-                  <p className="text-[10px] text-[#7F91A1]">Demo workspace</p>
+                  <p className="text-xs font-bold text-[#1E293B]">Mirna CMS</p>
+                  <p className="text-[10px] text-[#7F91A1]">Authenticated session</p>
                 </div>
               </div>
               <button type="button" className="rounded-lg border border-[#DCE5EC] bg-white px-2.5 py-2 text-[11px] font-bold text-[#0F4C81] transition hover:border-[#0F4C81] focus-visible:outline-[#0F4C81]" onClick={() => setLocale(locale === "en" ? "ar" : "en")} aria-label={locale === "en" ? "Switch to Arabic" : "التبديل إلى الإنجليزية"}>

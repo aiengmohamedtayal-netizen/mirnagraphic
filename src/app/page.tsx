@@ -17,14 +17,18 @@ import FAQ from '@/components/sections/FAQ';
 import ContactPortal from '@/components/sections/ContactPortal';
 import FactoryLocation from '@/components/sections/FactoryLocation';
 import FinalCta from '@/components/sections/FinalCta';
+import { getHomeCmsContent } from '@/lib/public-content';
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const cmsContent = await getHomeCmsContent();
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary overflow-x-hidden">
       
       {/* 1. Identity */}
       <div className="relative z-10">
-        <Hero />
+        <Hero content={cmsContent?.hero ? { title: cmsContent.hero.title, description: cmsContent.hero.description, eyebrow: cmsContent.hero.eyebrow, cta: cmsContent.cta } : undefined} />
         <AboutMirna />
       </div>
 

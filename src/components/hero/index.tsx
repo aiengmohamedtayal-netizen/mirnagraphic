@@ -22,8 +22,18 @@ const Scene3D = dynamic(() => import("./Scene3D"), {
   loading: Scene3DLoader,
 });
 
-export default function Hero({ forceFallback = false }: { forceFallback?: boolean }) {
-  const { t } = useLocale();
+type HeroContent = {
+  eyebrow?: { ar?: string; en?: string };
+  title?: { ar?: string; en?: string };
+  description?: { ar?: string; en?: string };
+  cta?: { ar?: string; en?: string };
+};
+
+export default function Hero({ forceFallback = false, content }: { forceFallback?: boolean; content?: HeroContent }) {
+  const { t, locale } = useLocale();
+  const cmsTitle = content?.title?.[locale];
+  const cmsDescription = content?.description?.[locale];
+  const cmsCta = content?.cta?.[locale];
   const [shouldUseFallback, setShouldUseFallback] = useState<boolean>(true); // default to true for SSR safety
   const [isClient, setIsClient] = useState(false);
 
@@ -59,17 +69,17 @@ export default function Hero({ forceFallback = false }: { forceFallback?: boolea
           {/* Text Content */}
           <div className="w-full md:w-1/2 lg:w-[40%] text-center md:text-left flex flex-col items-center md:items-start z-20">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-neutral-900 mb-6 tracking-tight leading-tight slide-up">
-              {t.hero.h1}
+              {cmsTitle || t.hero.h1}
             </h1>
             <p className="text-lg sm:text-xl text-neutral-600 max-w-xl mb-10 slide-up" style={{ animationDelay: '100ms' }}>
-              {t.hero.subtitle}
+              {cmsDescription || t.hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 w-full sm:w-auto fade-in" style={{ animationDelay: '200ms' }}>
               <a
                 href="#capabilities"
                 className="w-full sm:w-auto inline-flex h-12 items-center justify-center rounded-lg bg-primary px-8 text-sm font-semibold text-white transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
               >
-                {t.hero.ctaPrimary}
+                {cmsCta || t.hero.ctaPrimary}
               </a>
               <a
                 href="#manufacturing"

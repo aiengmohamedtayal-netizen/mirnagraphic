@@ -20,6 +20,7 @@ export const adminDictionary: Record<AdminLocale, {
       clients: "Clients",
       reports: "Reports",
       settings: "Settings",
+      content: "Site Content",
       publicSite: "View public site",
     },
     common: {
@@ -88,6 +89,7 @@ export const adminDictionary: Record<AdminLocale, {
       clients: "العملاء",
       reports: "التقارير",
       settings: "الإعدادات",
+      content: "محتوى الموقع",
       publicSite: "عرض الموقع العام",
     },
     common: {
