@@ -15,10 +15,13 @@ export default function AdminLoginPage() {
     event.preventDefault();
     setLoading(true);
     setError("");
+    const formData = new FormData(event.currentTarget);
+    const submittedEmail = String(formData.get("email") ?? email);
+    const submittedPassword = String(formData.get("password") ?? password);
     const response = await fetch("/api/auth/login", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email: submittedEmail, password: submittedPassword }),
     });
     const result = await response.json().catch(() => ({}));
     setLoading(false);
@@ -38,8 +41,8 @@ export default function AdminLoginPage() {
         <h1 id="admin-login-title">Sign in to Admin</h1>
         <p className="admin-login-copy">Manage published site content, production information, and workspace settings.</p>
         <form onSubmit={submit} className="admin-login-form">
-          <label>Email<input type="email" autoComplete="username" value={email} onChange={(event) => setEmail(event.target.value)} required /></label>
-          <label>Password<input type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} required /></label>
+          <label>Email<input name="email" type="email" autoComplete="username" value={email} onChange={(event) => setEmail(event.target.value)} required /></label>
+          <label>Password<input name="password" type="password" autoComplete="current-password" value={password} onChange={(event) => setPassword(event.target.value)} required /></label>
           {error ? <p className="admin-form-error" role="alert">{error}</p> : null}
           <button type="submit" disabled={loading}>{loading ? "Signing in…" : "Sign in securely"}</button>
         </form>
