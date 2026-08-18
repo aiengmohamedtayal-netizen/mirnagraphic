@@ -13,7 +13,7 @@ export default function InventoryPage() {
       <section className="admin-surface p-5 sm:p-6">
         <EmptyState
           title={isArabic ? "لا توجد بيانات مخزون حقيقية" : "No live inventory data"}
-          description={isArabic ? "قاعدة CMS الحالية لا تحتوي على جدول مخزون. تم إخفاء كل الأرقام والتنبيهات التجريبية حتى يتم ربط نظام المخزون الفعلي." : "The current CMS database has no inventory table. All sample quantities and alerts have been removed until the real inventory system is connected."}
+          description={isArabic ? "قاعدة CMS الحالية لا تحتوي على جدول مخزون. ستظهر الأرصدة والتنبيهات بعد ربط نظام المخزون الفعلي." : "The current CMS database has no inventory table. Quantities and alerts will appear after the real inventory system is connected."}
           action={<span className="inline-flex items-center gap-2 rounded-xl border border-[#DCE5EC] bg-white px-4 py-3 text-xs font-black text-[#496476]"><PackageOpen size={15} aria-hidden="true" /> {isArabic ? "بانتظار تكامل المخزون" : "Inventory integration pending"}</span>}
         />
       </section>

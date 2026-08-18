@@ -13,7 +13,7 @@ export default function ReportsPage() {
       <section className="admin-surface p-5 sm:p-6">
         <EmptyState
           title={isArabic ? "لا توجد بيانات لإنشاء التقارير" : "No reportable data yet"}
-          description={isArabic ? "لا توجد حالياً جداول تشغيل أو إنتاج أو مخزون يمكن بناء تقارير موثوقة منها. تم حذف النسب والرسوم التجريبية بالكامل." : "There are currently no connected operational, production, or inventory tables from which reliable reports can be generated. All sample ratios and charts have been removed."}
+          description={isArabic ? "لا توجد حالياً جداول تشغيل أو إنتاج أو مخزون يمكن بناء تقارير موثوقة منها. ستظهر المؤشرات والرسوم بعد ربط مصادر البيانات الفعلية." : "There are currently no connected operational, production, or inventory tables from which reliable reports can be generated. Indicators and charts will appear after the real data sources are connected."}
           action={<span className="inline-flex items-center gap-2 rounded-xl border border-[#DCE5EC] bg-white px-4 py-3 text-xs font-black text-[#496476]"><BarChart3 size={15} aria-hidden="true" /> {isArabic ? "بانتظار بيانات تشغيلية" : "Awaiting operational data"}</span>}
         />
       </section>

@@ -13,7 +13,7 @@ export default function QuoteRequestsPage() {
       <section className="admin-surface p-5 sm:p-6">
         <EmptyState
           title={isArabic ? "لا توجد طلبات تسعير حقيقية" : "No live quote requests"}
-          description={isArabic ? "لا يحتوي CMS الحالي على جدول لطلبات التسعير أو نموذج استقبال مرتبط به. تم حذف كل الطلبات التجريبية وأزرار التصدير الوهمية." : "The current CMS has no quote-request table or connected intake form. All sample requests and placeholder export controls have been removed."}
+          description={isArabic ? "لا يحتوي CMS الحالي على جدول لطلبات التسعير أو نموذج استقبال مرتبط به. ستظهر الطلبات وأدوات التصدير بعد ربط مصدر الاستقبال الفعلي." : "The current CMS has no quote-request table or connected intake form. Requests and export tools will appear after the real intake source is connected."}
           action={<span className="inline-flex items-center gap-2 rounded-xl border border-[#DCE5EC] bg-white px-4 py-3 text-xs font-black text-[#496476]"><ClipboardList size={15} aria-hidden="true" /> {isArabic ? "بانتظار تكامل الطلبات" : "Quote intake integration pending"}</span>}
         />
       </section>
