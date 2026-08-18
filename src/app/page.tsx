@@ -17,81 +17,44 @@ import FAQ from '@/components/sections/FAQ';
 import ContactPortal from '@/components/sections/ContactPortal';
 import FactoryLocation from '@/components/sections/FactoryLocation';
 import FinalCta from '@/components/sections/FinalCta';
-import { getHomeCmsContent } from '@/lib/public-content';
+import { defaultSectionVisibility } from '@/lib/cms';
+import { getHomeCmsContent, getPublishedProjects } from '@/lib/public-content';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
-  const cmsContent = await getHomeCmsContent();
+  const [cmsContent, publishedProjects] = await Promise.all([getHomeCmsContent(), getPublishedProjects()]);
+  const visible = { ...defaultSectionVisibility, ...(cmsContent?.sectionVisibility ?? {}) };
+
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/20 selection:text-primary overflow-x-hidden">
-      
-      {/* 1. Identity */}
+    <main className="min-h-screen overflow-x-hidden bg-background text-foreground selection:bg-primary/20 selection:text-primary">
       <div className="relative z-10">
         <Hero content={cmsContent?.hero ? { title: cmsContent.hero.title, description: cmsContent.hero.description, eyebrow: cmsContent.hero.eyebrow, cta: cmsContent.cta } : undefined} />
-        <AboutMirna />
+        {visible.about && <AboutMirna />}
       </div>
 
-      {/* 2. Trust */}
-      <div className="relative z-20">
-        <WhyChoose />
-        <Testimonials />
-        <Certifications />
-      </div>
+      {visible.trust && <div className="relative z-20"><WhyChoose /><Testimonials /><Certifications /></div>}
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      {/* 3. Manufacturing */}
-      <div className="relative z-30">
-        <Capabilities />
-        <ManufacturingTech />
-      </div>
+      {visible.capabilities && <div className="relative z-30"><Capabilities /></div>}
+      {visible.manufacturing && <div className="relative z-30"><ManufacturingTech /></div>}
 
-      {/* 4. Technology */}
-      <div className="relative z-40">
-        <FactoryProcess />
-        <AssetLedger />
-      </div>
+      {visible.technology && <div className="relative z-40"><FactoryProcess /><AssetLedger /></div>}
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-      {/* 5. Products */}
-      <div className="relative z-50">
-        <Portfolio />
-      </div>
+      {visible.products && <div className="relative z-50"><Portfolio /></div>}
+      {visible.industries && <div className="relative z-[55]"><IndustriesServed /></div>}
+      {visible.factory && <div className="relative z-[60]"><FactoryShowcase /></div>}
 
-      {/* 6. Industries */}
-      <div className="relative z-[55]">
-        <IndustriesServed />
-      </div>
+      <div className="h-px w-full bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      {/* 7. Factory */}
-      <div className="relative z-60">
-        <FactoryShowcase />
-      </div>
+      {visible.quality && <div className="relative z-[65]"><QualityControl /><Statistics /></div>}
 
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      {visible.projects && publishedProjects.length > 0 && <div className="relative z-[70] bg-background"><div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-secondary/10 to-transparent" /><LatestProjects projects={publishedProjects} /></div>}
 
-      {/* 8. Quality */}
-      <div className="relative z-[65]">
-        <QualityControl />
-        <Statistics />
-      </div>
-
-      {/* 9. Projects */}
-      <div className="relative z-70 bg-background">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/10 to-transparent pointer-events-none" />
-        <LatestProjects />
-      </div>
-
-      {/* 10. Contact */}
-      <div className="relative z-[80]">
-        <FAQ />
-        <ContactPortal />
-        <FactoryLocation />
-        <FinalCta />
-      </div>
-
+      {visible.contact && <div className="relative z-[80]"><FAQ /><ContactPortal /><FactoryLocation /><FinalCta /></div>}
     </main>
   );
 }

@@ -1,7 +1,6 @@
 import "server-only";
 
 import { desc, eq, max } from "drizzle-orm";
-
 import { db } from "@/db";
 import { revisions, siteSettings } from "@/db/schema";
 
@@ -11,9 +10,39 @@ export const HOME_DRAFT_KEY = "home";
 export const HOME_PUBLISHED_KEY = "home_published";
 
 export type Localized = { ar: string; en: string };
+
+export type HomeSectionVisibility = {
+  about: boolean;
+  trust: boolean;
+  capabilities: boolean;
+  manufacturing: boolean;
+  technology: boolean;
+  products: boolean;
+  industries: boolean;
+  factory: boolean;
+  quality: boolean;
+  projects: boolean;
+  contact: boolean;
+};
+
 export type HomeContent = {
   hero: { eyebrow: Localized; title: Localized; description: Localized };
   cta: Localized;
+  sectionVisibility?: HomeSectionVisibility;
+};
+
+export const defaultSectionVisibility: HomeSectionVisibility = {
+  about: true,
+  trust: true,
+  capabilities: true,
+  manufacturing: true,
+  technology: true,
+  products: true,
+  industries: true,
+  factory: true,
+  quality: true,
+  projects: true,
+  contact: true,
 };
 
 export const defaultHome: HomeContent = {
@@ -23,16 +52,32 @@ export const defaultHome: HomeContent = {
     description: { ar: "حلول تغليف B2B دقيقة من العينة إلى الإنتاج والتسليم.", en: "Precise B2B packaging solutions from sample to production and delivery." },
   },
   cta: { ar: "ابدأ مشروعك", en: "Start your project" },
+  sectionVisibility: defaultSectionVisibility,
 };
+
+export function normalizeHomeContent(value: unknown): HomeContent {
+  const item = (value && typeof value === "object" ? value : {}) as Partial<HomeContent>;
+  const hero = item.hero ?? defaultHome.hero;
+  const cta = item.cta ?? defaultHome.cta;
+  return {
+    hero: {
+      eyebrow: hero.eyebrow ?? defaultHome.hero.eyebrow,
+      title: hero.title ?? defaultHome.hero.title,
+      description: hero.description ?? defaultHome.hero.description,
+    },
+    cta: cta.ar || cta.en ? { ar: cta.ar ?? defaultHome.cta.ar, en: cta.en ?? defaultHome.cta.en } : defaultHome.cta,
+    sectionVisibility: { ...defaultSectionVisibility, ...(item.sectionVisibility ?? {}) },
+  };
+}
 
 export async function getHomeDraft() {
   const row = (await db.select().from(siteSettings).where(eq(siteSettings.key, HOME_DRAFT_KEY)).limit(1))[0];
-  return row?.value ?? defaultHome;
+  return normalizeHomeContent(row?.value ?? defaultHome);
 }
 
 export async function getHomePublished() {
   const row = (await db.select().from(siteSettings).where(eq(siteSettings.key, HOME_PUBLISHED_KEY)).limit(1))[0];
-  return row?.value ?? null;
+  return row?.value ? normalizeHomeContent(row.value) : null;
 }
 
 export async function getNextHomeRevisionVersion() {
