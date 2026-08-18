@@ -21,6 +21,10 @@ export const adminDictionary: Record<AdminLocale, {
       reports: "Reports",
       settings: "Settings",
       content: "Site Content",
+      catalog: "Content Catalog",
+      media: "Media Library",
+      seo: "SEO Settings",
+      users: "Users & Roles",
       publicSite: "View public site",
     },
     common: {
@@ -90,6 +94,10 @@ export const adminDictionary: Record<AdminLocale, {
       reports: "التقارير",
       settings: "الإعدادات",
       content: "محتوى الموقع",
+      catalog: "كتالوج المحتوى",
+      media: "مكتبة الوسائط",
+      seo: "إعدادات SEO",
+      users: "المستخدمون والصلاحيات",
       publicSite: "عرض الموقع العام",
     },
     common: {

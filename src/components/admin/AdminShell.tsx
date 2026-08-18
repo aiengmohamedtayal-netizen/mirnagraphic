@@ -19,6 +19,9 @@ import {
   Settings,
   Users,
   FilePenLine,
+  Image,
+  SearchCheck,
+  UserCog,
   X,
 } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
@@ -34,6 +37,10 @@ const navigation = [
   { key: "reports", href: "/admin/reports", icon: BarChart3 },
   { key: "settings", href: "/admin/settings", icon: Settings },
   { key: "content", href: "/admin/content", icon: FilePenLine },
+  { key: "catalog", href: "/admin/catalog", icon: Boxes },
+  { key: "media", href: "/admin/media", icon: Image },
+  { key: "seo", href: "/admin/seo", icon: SearchCheck },
+  { key: "users", href: "/admin/users", icon: UserCog },
 ] as const;
 
 type AdminShellProps = {
