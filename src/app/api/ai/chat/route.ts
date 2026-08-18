@@ -17,6 +17,7 @@ type ChatRequest = {
   messages?: unknown;
   locale?: unknown;
   mode?: unknown;
+  strategy?: unknown;
 };
 
 function jsonResponse(body: Record<string, unknown>, status = 200) {
@@ -75,6 +76,7 @@ export async function POST(request: Request) {
 
   const mode = body.mode === "admin" ? "admin" : "public";
   const locale = body.locale === "ar" ? "ar" : "en";
+  const strategy = body.strategy === "thinking" ? "thinking" : "fast";
 
   if (mode === "admin") {
     try {
@@ -85,9 +87,16 @@ export async function POST(request: Request) {
     }
   }
 
-  const apiKey = process.env.SOVEREIGNEG_API_KEY;
+  const isThinking = strategy === "thinking";
+  const apiKey = isThinking
+    ? process.env.SOVEREIGNEG_API_KEY
+    : (process.env.SOVEREIGNEG_FAST_API_KEY || process.env.SOVEREIGNEG_API_KEY);
+  const model = isThinking
+    ? (process.env.SOVEREIGNEG_MODEL || "qwen3.6-27b")
+    : (process.env.SOVEREIGNEG_FAST_MODEL || "deepseek-v4-flash");
+
   if (!apiKey) {
-    console.error("SOVEREIGNEG_API_KEY is not configured.");
+    console.error(`${strategy === "thinking" ? "SOVEREIGNEG_API_KEY" : "SOVEREIGNEG_FAST_API_KEY"} is not configured.`);
     return jsonResponse({ error: "AI assistant is not configured." }, 503);
   }
 
@@ -105,13 +114,13 @@ export async function POST(request: Request) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: process.env.SOVEREIGNEG_MODEL || "qwen3.6-27b",
+        model,
         messages: [
           { role: "system", content: getSystemPrompt(locale, mode) },
           ...messages,
         ],
         temperature: 0.35,
-        max_tokens: mode === "admin" ? 900 : 700,
+        max_tokens: isThinking ? (mode === "admin" ? 900 : 700) : (mode === "admin" ? 650 : 500),
         stream: false,
       }),
       signal: AbortSignal.timeout(25_000),

@@ -7,6 +7,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { useLocale } from "@/context/LocaleContext";
 
 type AssistantMode = "public" | "admin";
+type AssistantStrategy = "fast" | "thinking";
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
 const copy = {
@@ -21,6 +22,8 @@ const copy = {
       close: "Close assistant",
       open: "Open Mirna AI assistant",
       error: "The assistant is temporarily unavailable. Please try again.",
+      fast: "Fast answers",
+      thinking: "Deep thinking",
       suggestions: ["Which carton material fits cosmetics?", "What should I prepare for a quote?"],
     },
     admin: {
@@ -33,6 +36,8 @@ const copy = {
       close: "Close assistant",
       open: "Open Mirna CMS assistant",
       error: "The assistant is temporarily unavailable. Please try again.",
+      fast: "Fast answers",
+      thinking: "Deep thinking",
       suggestions: ["How do I publish a content revision?", "What makes a good SEO description?"],
     },
   },
@@ -47,6 +52,8 @@ const copy = {
       close: "إغلاق المساعد",
       open: "فتح مساعد ميرنا الذكي",
       error: "المساعد غير متاح مؤقتًا. حاول مرة أخرى.",
+      fast: "إجابة سريعة",
+      thinking: "تفكير عميق",
       suggestions: ["ما الخامة المناسبة لعبوات مستحضرات التجميل؟", "ما البيانات المطلوبة لطلب عرض سعر؟"],
     },
     admin: {
@@ -59,6 +66,8 @@ const copy = {
       close: "إغلاق المساعد",
       open: "فتح مساعد ميرنا CMS",
       error: "المساعد غير متاح مؤقتًا. حاول مرة أخرى.",
+      fast: "إجابة سريعة",
+      thinking: "تفكير عميق",
       suggestions: ["كيف أنشر نسخة جديدة من المحتوى؟", "ما مواصفات وصف SEO جيد؟"],
     },
   },
@@ -75,6 +84,7 @@ export default function AIAssistant({ mode }: { mode: AssistantMode }) {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>(() => initialMessages(mode, locale));
   const [loading, setLoading] = useState(false);
+  const [strategy, setStrategy] = useState<AssistantStrategy>("fast");
   const [error, setError] = useState("");
   const endRef = useRef<HTMLDivElement>(null);
 
@@ -103,7 +113,7 @@ export default function AIAssistant({ mode }: { mode: AssistantMode }) {
       const response = await fetch("/api/ai/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: nextMessages.slice(-12), locale, mode }),
+        body: JSON.stringify({ messages: nextMessages.slice(-12), locale, mode, strategy }),
       });
       const result = (await response.json()) as { answer?: unknown; error?: unknown };
       const answer = result.answer;
@@ -186,7 +196,10 @@ export default function AIAssistant({ mode }: { mode: AssistantMode }) {
                   <RotateCcw size={13} aria-hidden="true" />
                   {text.clear}
                 </button>
-                <span className="text-[10px] text-[#9AABB8]">SovereignEG · qwen3.6-27b</span>
+                <button type="button" onClick={() => setStrategy((current) => current === "fast" ? "thinking" : "fast")} disabled={loading} className="rounded-full border border-[#DCE5EC] px-2.5 py-1 text-[10px] font-semibold text-[#0F4C81] transition hover:border-[#0F4C81] hover:bg-[#F3F8FC] disabled:cursor-not-allowed disabled:opacity-50" aria-label={strategy === "fast" ? text.thinking : text.fast}>
+                  {strategy === "fast" ? text.fast : text.thinking}
+                </button>
+                <span className="truncate text-[10px] text-[#9AABB8]">SovereignEG · {strategy === "fast" ? "deepseek-v4-flash" : "qwen3.6-27b"}</span>
               </div>
             </form>
           </motion.section>
