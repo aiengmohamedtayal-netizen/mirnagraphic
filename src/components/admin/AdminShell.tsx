@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { useLocale } from "@/context/LocaleContext";
 import { adminDictionary } from "@/data/admin/dictionary";
+import AIAssistant from "@/components/ai/AIAssistant";
 
 const navigation = [
   { key: "dashboard", href: "/admin", icon: LayoutDashboard },
@@ -164,6 +165,7 @@ export default function AdminShell({ children, title, description }: AdminShellP
           )}
           {children}
         </main>
+        <AIAssistant mode="admin" />
       </div>
     </div>
   );
