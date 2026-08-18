@@ -20,10 +20,10 @@ export const LocaleProvider = ({ children }: { children: ReactNode }) => {
   // Load locale from localStorage if available
   useEffect(() => {
     const saved = localStorage.getItem('app_locale') as Locale;
-    if (saved && (saved === 'en' || saved === 'ar')) {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      setLocale(saved);
-    }
+    if (!saved || (saved !== 'en' && saved !== 'ar')) return;
+
+    const frame = window.requestAnimationFrame(() => setLocale(saved));
+    return () => window.cancelAnimationFrame(frame);
   }, []);
 
   // Sync locale to HTML attributes

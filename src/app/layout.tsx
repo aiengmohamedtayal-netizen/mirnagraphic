@@ -3,9 +3,7 @@ import localFont from "next/font/local";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { LocaleProvider } from "@/context/LocaleContext";
-import Navbar from "@/components/layout/Navbar";
-import ReadingProgress from "@/components/ui/ReadingProgress";
-import LocationFooter from "@/components/sections/LocationFooter";
+import AppChrome from "@/components/layout/AppChrome";
 import { ViewTransitions } from 'next-view-transitions';
 
 const inter = Inter({
@@ -76,12 +74,7 @@ export default function RootLayout({
       <body className="antialiased font-sans bg-background text-foreground min-h-screen flex flex-col selection:bg-primary selection:text-primary-foreground">
         <ViewTransitions>
           <LocaleProvider>
-            <ReadingProgress />
-            <Navbar />
-            <main id="main-content">
-              {children}
-            </main>
-            <LocationFooter />
+            <AppChrome>{children}</AppChrome>
           </LocaleProvider>
         </ViewTransitions>
       </body>

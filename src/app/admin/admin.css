@@ -1,0 +1,102 @@
+@layer components {
+  .admin-icon-button {
+    position: relative;
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    transition: 160ms ease;
+  }
+
+  .admin-icon-button:active {
+    transform: scale(0.97);
+  }
+
+  .admin-surface {
+    border: 1px solid rgba(220, 229, 236, 0.9);
+    border-radius: 1.25rem;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 8px 30px rgba(15, 76, 129, 0.045);
+  }
+
+  .admin-table-wrap {
+    overflow-x: auto;
+    border-radius: 0.9rem;
+    border: 1px solid #e4ebf0;
+  }
+
+  .admin-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: start;
+  }
+
+  .admin-table th {
+    background: #f7fafc;
+    color: #718395;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .admin-table th,
+  .admin-table td {
+    padding: 0.95rem 1rem;
+    vertical-align: middle;
+  }
+
+  .admin-table tbody tr {
+    border-top: 1px solid #edf2f5;
+    transition: background-color 160ms ease;
+  }
+
+  .admin-table tbody tr:hover {
+    background: #fbfdfe;
+  }
+
+  .admin-table tbody td {
+    color: #536879;
+    font-size: 0.8rem;
+  }
+
+  .admin-table tbody td strong {
+    color: #1e3a50;
+    font-weight: 800;
+  }
+
+  .admin-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 9999px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.68rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .admin-status::before {
+    content: "";
+    height: 0.4rem;
+    width: 0.4rem;
+    border-radius: 9999px;
+    background: currentColor;
+  }
+
+  .admin-status-blue { background: #edf5fb; color: #27618a; }
+  .admin-status-green { background: #edf8f1; color: #347b58; }
+  .admin-status-amber { background: #fff8e8; color: #9a7417; }
+  .admin-status-red { background: #fff0ef; color: #a64d48; }
+  .admin-status-slate { background: #f0f3f5; color: #687988; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .admin-icon-button,
+    .admin-table tbody tr {
+      transition: none;
+    }
+  }
+}

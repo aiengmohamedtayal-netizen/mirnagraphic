@@ -4,12 +4,12 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function VideoFallback() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [reduceMotion, setReduceMotion] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(() =>
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReduceMotion(mediaQuery.matches);
-
     const listener = (e: MediaQueryListEvent) => setReduceMotion(e.matches);
     mediaQuery.addEventListener("change", listener);
 

@@ -39,7 +39,7 @@ export function PremiumBox({ position = [0, 0, 0], scale = 1 }: { position?: [nu
     side: THREE.DoubleSide,
   }), []);
 
-  useFrame((state, delta) => {
+  useFrame((state) => {
     const offset = scroll.offset; // 0 to 1 based on scroll
 
     // Smooth hover effect - subtle floating and rotation

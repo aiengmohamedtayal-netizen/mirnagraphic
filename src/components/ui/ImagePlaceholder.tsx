@@ -19,7 +19,7 @@ export default function ImagePlaceholder({ prompt, className = '', aspectRatio =
         </div>
         <span className="text-xs font-bold uppercase tracking-widest text-primary mb-2">Nano Banana Prompt</span>
         <p className="text-sm font-mono text-muted-foreground max-w-md line-clamp-4 group-hover:line-clamp-none transition-all bg-background/80 backdrop-blur-sm p-3 rounded-lg border border-border">
-          "{prompt}"
+          &ldquo;{prompt}&rdquo;
         </p>
       </div>
     </div>

@@ -28,22 +28,23 @@ export default function Hero({ forceFallback = false }: { forceFallback?: boolea
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-    
-    if (forceFallback) {
-      setShouldUseFallback(true);
-      return;
-    }
+    // Defer client-only state reconciliation to avoid hydration mismatch and cascading renders.
+    const frame = window.requestAnimationFrame(() => {
+      setIsClient(true);
+      setShouldUseFallback(forceFallback);
+    });
 
-    // Sniff device capabilities
     const checkCapabilities = () => {
-      setShouldUseFallback(false);
+      if (!forceFallback) {
+        setShouldUseFallback(false);
+      }
     };
 
-    checkCapabilities();
-    
     window.addEventListener("resize", checkCapabilities);
-    return () => window.removeEventListener("resize", checkCapabilities);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("resize", checkCapabilities);
+    };
   }, [forceFallback]);
 
   return (
