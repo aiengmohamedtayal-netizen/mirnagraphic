@@ -123,10 +123,11 @@ export async function POST(request: Request) {
         // Qwen3.6 can spend a small output budget entirely in reasoning and return no final content.
         // Keep the reasoning path private while allocating enough room for the user-facing answer.
         ...(isThinking ? { include_reasoning: false } : {}),
-        max_tokens: isThinking ? (mode === "admin" ? 2200 : 1800) : (mode === "admin" ? 650 : 500),
+        max_tokens: isThinking ? (mode === "admin" ? 1600 : 1400) : (mode === "admin" ? 650 : 500),
         stream: false,
       }),
-      signal: AbortSignal.timeout(25_000),
+      // Thinking responses can take longer than fast completions, especially on a cold upstream worker.
+      signal: AbortSignal.timeout(isThinking ? 50_000 : 25_000),
       cache: "no-store",
     });
 
