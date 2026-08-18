@@ -120,7 +120,10 @@ export async function POST(request: Request) {
           ...messages,
         ],
         temperature: 0.35,
-        max_tokens: isThinking ? (mode === "admin" ? 900 : 700) : (mode === "admin" ? 650 : 500),
+        // Qwen3.6 can spend a small output budget entirely in reasoning and return no final content.
+        // Keep the reasoning path private while allocating enough room for the user-facing answer.
+        ...(isThinking ? { include_reasoning: false } : {}),
+        max_tokens: isThinking ? (mode === "admin" ? 2200 : 1800) : (mode === "admin" ? 650 : 500),
         stream: false,
       }),
       signal: AbortSignal.timeout(25_000),
@@ -133,11 +136,26 @@ export async function POST(request: Request) {
     }
 
     const result = (await upstream.json()) as {
-      choices?: Array<{ message?: { content?: unknown } }>;
+      choices?: Array<{
+        message?: {
+          content?: unknown;
+          reasoning?: unknown;
+          reasoning_content?: unknown;
+        };
+        finish_reason?: unknown;
+      }>;
     };
-    const answer = result.choices?.[0]?.message?.content;
+    const message = result.choices?.[0]?.message;
+    const answer = message?.content;
     if (typeof answer !== "string" || answer.trim().length === 0) {
-      return jsonResponse({ error: "The AI assistant returned an empty response." }, 502);
+      const hasReasoningOnlyResponse = typeof message?.reasoning === "string"
+        || typeof message?.reasoning_content === "string";
+      console.error("SovereignEG returned no final content", {
+        strategy,
+        finishReason: result.choices?.[0]?.finish_reason,
+        reasoningOnly: hasReasoningOnlyResponse,
+      });
+      return jsonResponse({ error: "The AI assistant is still preparing a final answer. Please try again." }, 502);
     }
 
     return jsonResponse({ answer: answer.trim().slice(0, 12000) });
