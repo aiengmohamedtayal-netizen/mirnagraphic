@@ -59,6 +59,10 @@ export default function AdminShell({ children, title, description }: AdminShellP
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const isRtl = dir === "rtl";
 
+  if (pathname.startsWith("/admin/login")) {
+    return <div className="admin-login-route" dir={dir}>{children}</div>;
+  }
+
   return (
     <div className="admin-shell min-h-screen bg-[#F3F6F9] text-[#1E293B]" dir={dir}>
       <aside
