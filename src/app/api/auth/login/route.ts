@@ -19,7 +19,9 @@ export async function POST(request: Request) {
     const configuredPassword = process.env.ADMIN_PASSWORD!;
     let user = (await db.select().from(users).where(eq(users.email, email)).limit(1))[0];
 
-    if (!user && email === configuredEmail && password === configuredPassword) {
+    const configuredCredentialsMatch = email === configuredEmail && password === configuredPassword;
+
+    if (!user && configuredCredentialsMatch) {
       user = (await db.insert(users).values({
         email,
         displayName: "Mirna Administrator",
@@ -29,7 +31,18 @@ export async function POST(request: Request) {
       }).returning())[0];
     }
 
-    if (!user || !user.isActive || !verifyPassword(password, user.passwordHash)) {
+    if (!user || !user.isActive) {
+      return NextResponse.json({ error: "Invalid email or password." }, { status: 401 });
+    }
+
+    // Keep the first-admin environment credentials authoritative so rotating
+    // ADMIN_PASSWORD also repairs an existing bootstrap account's old hash.
+    if (configuredCredentialsMatch && user.email === configuredEmail) {
+      user = (await db.update(users)
+        .set({ passwordHash: hashPassword(password) })
+        .where(eq(users.id, user.id))
+        .returning())[0] ?? user;
+    } else if (!verifyPassword(password, user.passwordHash)) {
       return NextResponse.json({ error: "Invalid email or password." }, { status: 401 });
     }
 
